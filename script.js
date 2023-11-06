@@ -21,8 +21,34 @@ function compareAge() {
 console.log(compareAge());
 
 //ESERCIZIO 2
-//Crea un form per la creazione di oggetti Pet
-//proprietà: petName, ownerName, species (cane, gatto), breed
+class Pet {
+  constructor(petName, ownerName, species, breed) {
+    this.petName = petName;
+    this.ownerName = ownerName;
+    this.species = species;
+    this.breed = breed;
+  }
+
+  static shareOwner(pet1, pet2) {
+    return pet1.ownerName === pet2.ownerName;
+  }
+}
+
+const petCards = [];
+
+document.getElementById("petForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  let petName = document.getElementById("petName").value;
+  let ownerName = document.getElementById("ownerName").value;
+  let species = document.getElementById("species").value;
+  let breed = document.getElementById("breed").value;
+
+  let pet = new Pet(petName, ownerName, species, breed);
+  petCards.push(pet);
+  console.log(petCards);
+});
+
 //nella classe che utilizzerai per creare questi oggetti aggiungi anche un metodo che restituisca "true" se 2 animali condividono
 //lo stesso padrone
 
