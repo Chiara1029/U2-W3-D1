@@ -47,9 +47,10 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
   let pet = new Pet(petName, ownerName, species, breed);
   petCards.push(pet);
   console.log(petCards);
-});
 
-//nella classe che utilizzerai per creare questi oggetti aggiungi anche un metodo che restituisca "true" se 2 animali condividono
-//lo stesso padrone
+  if (petCards.length > 1) {
+    console.log(Pet.shareOwner(petCards[0], petCards[1]));
+  }
+});
 
 //Crea, raccogliendo i dati dal form, diverse istanze della classe Pet e mostrane i dati in una lista sottostante
